@@ -1,1 +1,1 @@
-/home/juan/Descargas/slingscold-launcher/build/CMakeFiles/slingscold.dir
+/home/sergio/Workspaces/Clang/slingscold/build/CMakeFiles/slingscold.dir

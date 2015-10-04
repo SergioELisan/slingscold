@@ -11,5 +11,3 @@
 
 %:
 	dh $@ 
-install:
-	cp -af usr $(CURDIR)/debian/slingscold/

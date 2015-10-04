@@ -150,7 +150,7 @@ namespace Slingshot.Frontend {
 
             context.set_source_rgba (0.0, 0.0, 0.0, 0.70);
             double offset = 0.0;
-            double radius = 3.0;
+            double radius = 18.0;
             context.move_to (x + radius, size.y + offset);
 		    context.arc (x + width - radius - offset, size.y + radius + offset, radius, Math.PI * 1.5, Math.PI * 2);
 		    context.arc (x + width - radius - offset, size.y + size.height - radius - offset, radius, 0, Math.PI * 0.5);

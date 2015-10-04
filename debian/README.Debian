@@ -1,6 +1,6 @@
 slingscold-launcher for Debian
 ------------------------------
 
-<possible notes regarding this package - if none, delete this file>
+Lanzador de aplicaciones al estilo Launchpad de Mac OS X (Apple) escrito en Vala utilizando GTK+ y Cairo.
 
- -- Juan Pablo Lozano <libredeb@gmail.com>  Tue, 30 Jul 2013 00:43:23 -0300
+ -- Juan Pablo Lozano <libredeb@gmail.com>  Sun, 25 Aug 2013 04:43:23 -0300

@@ -1,3 +1,4 @@
-Slingscold is a lightweight app launcher for GNU/Linux, written in Vala and utilizing GTK+ and Cairo.
+Slingscold es un ligero lanzador de aplicaciones al estilo Launchpad de Mac OS X (Apple) 
+escrito en Vala utilizando GTK+ y Cairo.
 
-Under GNU GPL v3
+Bajo licencia GNU GPL v3

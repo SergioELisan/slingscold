@@ -1,0 +1,3 @@
+/usr/share/applications/slingscold.desktop
+/usr/share/icons/slingscold.png
+/usr/local/bin/slingscold

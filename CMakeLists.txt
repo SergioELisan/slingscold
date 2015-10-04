@@ -2,8 +2,10 @@
 # refer to the root source directory of the project as ${HELLO_SOURCE_DIR} and
 # to the root binary directory of the project as ${HELLO_BINARY_DIR}.
 cmake_minimum_required (VERSION 2.6)
+SET(CMAKE_COLOR_MAKEFILE ON)
+SET(CMAKE_VERBOSE_MAKEFILE OFF)
 project (Slingshot)
-
+SET(PROJECT_NAME_SHORT   "SC")
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/vala )
 # Recurse into the "Hello" and "Demo" subdirectories. This does not actually
 # cause another cmake executable to run. The same process will walk through
@@ -46,7 +48,8 @@ PACKAGES
 OPTIONS
     --thread
     )
-
+INSTALL (FILES usr/slingscold.desktop DESTINATION /usr/share/applications/)
+INSTALL (FILES usr/slingscold.png DESTINATION /usr/share/icons/)
 add_definitions(${CFLAGS} -Wall -Winit-self -Wwrite-strings -Wunreachable-code
                           -Wstrict-prototypes -DGMENU_I_KNOW_THIS_IS_UNSTABLE -DWNCK_I_KNOW_THIS_IS_UNSTABLE )
 add_executable(slingscold ${VALA_C})
