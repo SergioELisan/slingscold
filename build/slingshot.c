@@ -488,13 +488,13 @@ SlingshotWindow* slingshot_window_construct (GType object_type) {
 	_tmp52_ = _tmp51_.height;
 	if (_tmp50_ > _tmp52_) {
 		SlingshotFrontendGrid* _tmp53_ = NULL;
-		_tmp53_ = slingshot_frontend_grid_new (4, 8);
+		_tmp53_ = slingshot_frontend_grid_new (4, 7);
 		g_object_ref_sink (_tmp53_);
 		_g_object_unref0 (self->grid);
 		self->grid = _tmp53_;
 	} else {
 		SlingshotFrontendGrid* _tmp54_ = NULL;
-		_tmp54_ = slingshot_frontend_grid_new (8, 4);
+		_tmp54_ = slingshot_frontend_grid_new (7, 4);
 		g_object_ref_sink (_tmp54_);
 		_g_object_unref0 (self->grid);
 		self->grid = _tmp54_;

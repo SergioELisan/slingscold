@@ -78,9 +78,9 @@ public class SlingshotWindow : ElementaryWidgets.CompositedWindow {
 
         // Make icon grid and populate
         if (monitor_dimensions.width > monitor_dimensions.height) { // normal landscape orientation
-            this.grid = new Slingshot.Frontend.Grid (4, 8);
+            this.grid = new Slingshot.Frontend.Grid (4, 7);
         } else { // most likely a portrait orientation
-            this.grid = new Slingshot.Frontend.Grid (8, 4);
+            this.grid = new Slingshot.Frontend.Grid (7, 4);
         }
         container.pack_start (this.grid, true, true, 0);
 
