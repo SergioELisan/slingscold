@@ -1,3 +1,5 @@
+![alt text](https://raw.githubusercontent.com/SergioELisan/slingscold/master/icons/slingscold_blue.png)
+
 Slingscode é um fork do Slingshot... Cold, Hot... understaaaand? Basicamente
 um Launchpad opensource pra voce usar gostoso no seu ubuntu MATE.
 
