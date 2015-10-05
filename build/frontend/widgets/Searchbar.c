@@ -7,8 +7,8 @@
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include <string.h>
-#include <pango/pango.h>
 #include <gdk/gdk.h>
+#include <pango/pango.h>
 #include <cairo.h>
 #include <float.h>
 #include <math.h>
@@ -60,7 +60,7 @@ enum  {
 	SLINGSHOT_FRONTEND_SEARCHBAR_TEXT
 };
 #define SLINGSHOT_FRONTEND_SEARCHBAR_WIDTH 240
-#define SLINGSHOT_FRONTEND_SEARCHBAR_HEIGHT 26
+#define SLINGSHOT_FRONTEND_SEARCHBAR_HEIGHT 32
 SlingshotFrontendSearchbar* slingshot_frontend_searchbar_new (const gchar* hint);
 SlingshotFrontendSearchbar* slingshot_frontend_searchbar_construct (GType object_type, const gchar* hint);
 static gboolean __lambda9_ (SlingshotFrontendSearchbar* self);
@@ -132,33 +132,36 @@ SlingshotFrontendSearchbar* slingshot_frontend_searchbar_construct (GType object
 	GtkHBox* _tmp5_ = NULL;
 	GtkEventBox* blank_space = NULL;
 	GtkEventBox* _tmp6_ = NULL;
-	GtkTextBuffer* _tmp7_ = NULL;
-	gchar* _tmp8_ = NULL;
-	gchar* _tmp9_ = NULL;
+	GdkColor color = {0};
+	GdkColor _tmp7_ = {0};
+	GdkColor _tmp8_ = {0};
+	GtkTextBuffer* _tmp9_ = NULL;
 	gchar* _tmp10_ = NULL;
-	GtkLabel* _tmp11_ = NULL;
-	GtkLabel* _tmp12_ = NULL;
+	gchar* _tmp11_ = NULL;
+	gchar* _tmp12_ = NULL;
 	GtkLabel* _tmp13_ = NULL;
 	GtkLabel* _tmp14_ = NULL;
 	GtkLabel* _tmp15_ = NULL;
 	GtkLabel* _tmp16_ = NULL;
 	GtkLabel* _tmp17_ = NULL;
+	GtkLabel* _tmp18_ = NULL;
+	GtkLabel* _tmp19_ = NULL;
 	GtkEventBox* clear_icon_wrapper = NULL;
-	GtkEventBox* _tmp18_ = NULL;
+	GtkEventBox* _tmp20_ = NULL;
 	GtkStockItem stock_item = {0};
 	GtkIconFactory* factory = NULL;
-	GtkIconFactory* _tmp19_ = NULL;
+	GtkIconFactory* _tmp21_ = NULL;
 	GtkIconSet* icon_set = NULL;
-	GtkIconSet* _tmp20_ = NULL;
+	GtkIconSet* _tmp22_ = NULL;
 	GtkIconSource* icon_source = NULL;
-	GtkIconSource* _tmp21_ = NULL;
-	GtkStockItem _tmp22_ = {0};
-	GtkStockItem* _tmp23_ = NULL;
-	GtkStockItem* _tmp24_ = NULL;
-	gint _tmp24__length1 = 0;
-	GtkImage* _tmp25_ = NULL;
-	GtkImage* _tmp26_ = NULL;
-	GtkTextBuffer* _tmp27_ = NULL;
+	GtkIconSource* _tmp23_ = NULL;
+	GtkStockItem _tmp24_ = {0};
+	GtkStockItem* _tmp25_ = NULL;
+	GtkStockItem* _tmp26_ = NULL;
+	gint _tmp26__length1 = 0;
+	GtkImage* _tmp27_ = NULL;
+	GtkImage* _tmp28_ = NULL;
+	GtkTextBuffer* _tmp29_ = NULL;
 	g_return_val_if_fail (hint != NULL, NULL);
 	self = (SlingshotFrontendSearchbar*) g_object_new (object_type, NULL);
 	_tmp0_ = hint;
@@ -182,31 +185,36 @@ SlingshotFrontendSearchbar* slingshot_frontend_searchbar_construct (GType object
 	g_object_ref_sink (_tmp6_);
 	blank_space = _tmp6_;
 	gtk_container_set_border_width ((GtkContainer*) blank_space, (guint) 4);
+	memset (&color, 0, sizeof (GdkColor));
+	gdk_color_parse ("#b2b2b2", &_tmp7_);
+	color = _tmp7_;
+	_tmp8_ = color;
+	gtk_widget_modify_bg ((GtkWidget*) blank_space, GTK_STATE_NORMAL, &_tmp8_);
 	gtk_box_pack_start ((GtkBox*) wrapper, (GtkWidget*) blank_space, FALSE, TRUE, (guint) 1);
-	_tmp7_ = self->priv->buffer;
-	g_object_get (_tmp7_, "text", &_tmp8_, NULL);
-	_tmp9_ = _tmp8_;
-	_tmp10_ = _tmp9_;
-	_tmp11_ = (GtkLabel*) gtk_label_new (_tmp10_);
-	g_object_ref_sink (_tmp11_);
+	_tmp9_ = self->priv->buffer;
+	g_object_get (_tmp9_, "text", &_tmp10_, NULL);
+	_tmp11_ = _tmp10_;
+	_tmp12_ = _tmp11_;
+	_tmp13_ = (GtkLabel*) gtk_label_new (_tmp12_);
+	g_object_ref_sink (_tmp13_);
 	_g_object_unref0 (self->label);
-	self->label = _tmp11_;
-	_g_free0 (_tmp10_);
-	_tmp12_ = self->label;
-	gtk_label_set_ellipsize (_tmp12_, PANGO_ELLIPSIZE_START);
-	_tmp13_ = self->label;
-	gtk_misc_set_alignment ((GtkMisc*) _tmp13_, 0.0f, 0.5f);
+	self->label = _tmp13_;
+	_g_free0 (_tmp12_);
 	_tmp14_ = self->label;
-	gtk_label_set_selectable (_tmp14_, TRUE);
+	gtk_label_set_ellipsize (_tmp14_, PANGO_ELLIPSIZE_START);
 	_tmp15_ = self->label;
-	g_object_set ((GtkWidget*) _tmp15_, "can-focus", FALSE, NULL);
+	gtk_misc_set_alignment ((GtkMisc*) _tmp15_, 0.0f, 0.5f);
 	_tmp16_ = self->label;
-	gtk_label_set_single_line_mode (_tmp16_, TRUE);
+	gtk_label_set_selectable (_tmp16_, TRUE);
 	_tmp17_ = self->label;
-	gtk_box_pack_start ((GtkBox*) wrapper, (GtkWidget*) _tmp17_, TRUE, TRUE, (guint) 0);
-	_tmp18_ = (GtkEventBox*) gtk_event_box_new ();
-	g_object_ref_sink (_tmp18_);
-	clear_icon_wrapper = _tmp18_;
+	g_object_set ((GtkWidget*) _tmp17_, "can-focus", FALSE, NULL);
+	_tmp18_ = self->label;
+	gtk_label_set_single_line_mode (_tmp18_, TRUE);
+	_tmp19_ = self->label;
+	gtk_box_pack_start ((GtkBox*) wrapper, (GtkWidget*) _tmp19_, TRUE, TRUE, (guint) 0);
+	_tmp20_ = (GtkEventBox*) gtk_event_box_new ();
+	g_object_ref_sink (_tmp20_);
+	clear_icon_wrapper = _tmp20_;
 	gtk_event_box_set_visible_window (clear_icon_wrapper, FALSE);
 	gtk_container_set_border_width ((GtkContainer*) clear_icon_wrapper, (guint) 4);
 	memset (&stock_item, 0, sizeof (GtkStockItem));
@@ -215,35 +223,35 @@ SlingshotFrontendSearchbar* slingshot_frontend_searchbar_construct (GType object
 	stock_item.modifier = 0;
 	stock_item.keyval = (guint) 0;
 	stock_item.translation_domain = GTK_STOCK_CLEAR;
-	_tmp19_ = gtk_icon_factory_new ();
-	factory = _tmp19_;
-	_tmp20_ = gtk_icon_set_new ();
-	icon_set = _tmp20_;
-	_tmp21_ = gtk_icon_source_new ();
-	icon_source = _tmp21_;
+	_tmp21_ = gtk_icon_factory_new ();
+	factory = _tmp21_;
+	_tmp22_ = gtk_icon_set_new ();
+	icon_set = _tmp22_;
+	_tmp23_ = gtk_icon_source_new ();
+	icon_source = _tmp23_;
 	gtk_icon_source_set_icon_name (icon_source, GTK_STOCK_CLEAR);
 	gtk_icon_set_add_source (icon_set, icon_source);
 	gtk_icon_source_set_icon_name (icon_source, "edit-clear-symbolic");
 	gtk_icon_set_add_source (icon_set, icon_source);
 	gtk_icon_factory_add (factory, "edit-clear-symbolic", icon_set);
-	_tmp22_ = stock_item;
-	_tmp23_ = g_new0 (GtkStockItem, 1);
-	_tmp23_[0] = _tmp22_;
-	_tmp24_ = _tmp23_;
-	_tmp24__length1 = 1;
-	gtk_stock_add (_tmp24_, 1);
-	_tmp24_ = (g_free (_tmp24_), NULL);
+	_tmp24_ = stock_item;
+	_tmp25_ = g_new0 (GtkStockItem, 1);
+	_tmp25_[0] = _tmp24_;
+	_tmp26_ = _tmp25_;
+	_tmp26__length1 = 1;
+	gtk_stock_add (_tmp26_, 1);
+	_tmp26_ = (g_free (_tmp26_), NULL);
 	gtk_icon_factory_add_default (factory);
-	_tmp25_ = (GtkImage*) gtk_image_new_from_stock ("edit-clear-symbolic", GTK_ICON_SIZE_MENU);
-	g_object_ref_sink (_tmp25_);
+	_tmp27_ = (GtkImage*) gtk_image_new_from_stock ("edit-clear-symbolic", GTK_ICON_SIZE_MENU);
+	g_object_ref_sink (_tmp27_);
 	_g_object_unref0 (self->priv->clear_icon);
-	self->priv->clear_icon = _tmp25_;
-	_tmp26_ = self->priv->clear_icon;
-	gtk_container_add ((GtkContainer*) clear_icon_wrapper, (GtkWidget*) _tmp26_);
+	self->priv->clear_icon = _tmp27_;
+	_tmp28_ = self->priv->clear_icon;
+	gtk_container_add ((GtkContainer*) clear_icon_wrapper, (GtkWidget*) _tmp28_);
 	g_signal_connect_object ((GtkWidget*) clear_icon_wrapper, "button-release-event", (GCallback) ___lambda9__gtk_widget_button_release_event, self, 0);
 	gtk_box_pack_end ((GtkBox*) wrapper, (GtkWidget*) clear_icon_wrapper, FALSE, TRUE, (guint) 3);
-	_tmp27_ = self->priv->buffer;
-	g_signal_connect_object (_tmp27_, "changed", (GCallback) _slingshot_frontend_searchbar_on_changed_gtk_text_buffer_changed, self, 0);
+	_tmp29_ = self->priv->buffer;
+	g_signal_connect_object (_tmp29_, "changed", (GCallback) _slingshot_frontend_searchbar_on_changed_gtk_text_buffer_changed, self, 0);
 	g_signal_connect_object ((GtkWidget*) self, "expose-event", (GCallback) _slingshot_frontend_searchbar_draw_background_gtk_widget_expose_event, self, 0);
 	g_signal_connect_object ((GtkWidget*) self, "realize", (GCallback) ___lambda10__gtk_widget_realize, self, 0);
 	_gtk_icon_source_free0 (icon_source);
@@ -300,7 +308,7 @@ static void slingshot_frontend_searchbar_grey_out (SlingshotFrontendSearchbar* s
 	PangoFontDescription* _tmp5_ = NULL;
 	g_return_if_fail (self != NULL);
 	memset (&color, 0, sizeof (GdkColor));
-	gdk_color_parse ("#a0a0a0", &_tmp0_);
+	gdk_color_parse ("#333333", &_tmp0_);
 	color = _tmp0_;
 	_tmp1_ = self->label;
 	_tmp2_ = color;
@@ -324,13 +332,13 @@ static void slingshot_frontend_searchbar_reset_font (SlingshotFrontendSearchbar*
 	PangoFontDescription* _tmp5_ = NULL;
 	g_return_if_fail (self != NULL);
 	memset (&color, 0, sizeof (GdkColor));
-	gdk_color_parse ("#444", &_tmp0_);
+	gdk_color_parse ("#333333", &_tmp0_);
 	color = _tmp0_;
 	_tmp1_ = self->label;
 	_tmp2_ = color;
 	gtk_widget_modify_fg ((GtkWidget*) _tmp1_, GTK_STATE_NORMAL, &_tmp2_);
 	_tmp3_ = self->label;
-	_tmp4_ = pango_font_description_from_string ("normal");
+	_tmp4_ = pango_font_description_from_string ("italic");
 	_tmp5_ = _tmp4_;
 	gtk_widget_modify_font ((GtkWidget*) _tmp3_, _tmp5_);
 	__vala_PangoFontDescription_free0 (_tmp5_);
@@ -377,7 +385,7 @@ static gboolean slingshot_frontend_searchbar_draw_background (SlingshotFrontendS
 	_tmp4_ = gdk_cairo_create ((GdkDrawable*) _tmp3_);
 	context = _tmp4_;
 	_tmp5_ = size;
-	slingshot_frontend_utilities_draw_rounded_rectangle (context, (gdouble) 0, 0.5, &_tmp5_);
+	slingshot_frontend_utilities_draw_rounded_rectangle (context, (gdouble) 10, 0.5, &_tmp5_);
 	_tmp6_ = size;
 	_tmp7_ = _tmp6_.x;
 	_tmp8_ = size;
@@ -390,7 +398,7 @@ static gboolean slingshot_frontend_searchbar_draw_background (SlingshotFrontendS
 	_tmp15_ = _tmp14_.height;
 	_tmp16_ = cairo_pattern_create_linear ((gdouble) _tmp7_, (gdouble) _tmp9_, (gdouble) _tmp11_, (gdouble) (_tmp13_ + _tmp15_));
 	linear_fill = _tmp16_;
-	cairo_pattern_add_color_stop_rgb (linear_fill, (gdouble) 1, (gdouble) 1, (gdouble) 1, (gdouble) 1);
+	cairo_pattern_add_color_stop_rgb (linear_fill, (gdouble) 1, 0.7, 0.7, 0.7);
 	cairo_set_source (context, linear_fill);
 	cairo_fill_preserve (context);
 	result = FALSE;

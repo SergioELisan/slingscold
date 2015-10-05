@@ -1,0 +1,3 @@
+#!/bin/sh
+
+reset && make -j3 && ./slingscold

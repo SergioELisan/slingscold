@@ -21,7 +21,7 @@ public class SlingshotWindow : ElementaryWidgets.CompositedWindow {
         Wnck.Screen.get_default().toggle_showing_desktop (false);
 
         // Window properties
-        this.title = "Slingshot";
+        this.title = "Slingscold";
         this.skip_pager_hint = true;
         this.skip_taskbar_hint = true;
         this.set_type_hint (Gdk.WindowTypeHint.NORMAL);
@@ -61,17 +61,6 @@ public class SlingshotWindow : ElementaryWidgets.CompositedWindow {
         var top = new Gtk.HBox (false, 0);
         var bottom = new Gtk.HBox (false, 0);
 
-        /*this.categories = new Slingshot.Frontend.Indicators ();
-        this.categories.child_activated.connect (this.change_category);
-        this.categories.append ("All");
-        foreach (GMenu.TreeDirectory category in this.all_categories) {
-            this.categories.append (category.get_name ());
-        }
-        */
-        //category appllication
-        //this.categories.set_active (0);
-        //top.pack_start (this.categories, true, true, 20);
-
         this.top_spacer = new Gtk.HBox (false, 20);
         this.top_spacer.realize.connect ( () => { this.top_spacer.visible = true; } );
         this.top_spacer.can_focus = true;
@@ -80,8 +69,7 @@ public class SlingshotWindow : ElementaryWidgets.CompositedWindow {
         //searchbar
         this.searchbar = new Slingshot.Frontend.Searchbar ("Procure por ...");
         this.searchbar.changed.connect (this.search);
-        //jarak samping
-		int medio = (monitor_dimensions.width / 2) - 120; //mover buscar al centro de la pantalla
+        int medio = (monitor_dimensions.width / 2) - 120;
         bottom.pack_start (this.searchbar, false, true, medio);
 
         //jarak atas
@@ -90,9 +78,9 @@ public class SlingshotWindow : ElementaryWidgets.CompositedWindow {
 
         // Make icon grid and populate
         if (monitor_dimensions.width > monitor_dimensions.height) { // normal landscape orientation
-            this.grid = new Slingshot.Frontend.Grid (4, 6);
+            this.grid = new Slingshot.Frontend.Grid (4, 8);
         } else { // most likely a portrait orientation
-            this.grid = new Slingshot.Frontend.Grid (6, 4);
+            this.grid = new Slingshot.Frontend.Grid (8, 4);
         }
         container.pack_start (this.grid, true, true, 0);
 
@@ -259,7 +247,7 @@ public class SlingshotWindow : ElementaryWidgets.CompositedWindow {
         var context = Gdk.cairo_create (widget.window); // directly onto the gdk.window
         // Semi-dark background
         var linear_gradient = new Cairo.Pattern.linear (size.x, size.y, size.x, size.y + size.height);
-        linear_gradient.add_color_stop_rgba (0.0, 0.0, 0.0, 0.0, 0.96);
+        linear_gradient.add_color_stop_rgba (0.0, 0.0, 0.0, 0.0, 0.9);
 
         context.set_source (linear_gradient);
         context.paint ();

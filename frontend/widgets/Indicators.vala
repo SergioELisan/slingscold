@@ -20,7 +20,7 @@ namespace Slingshot.Frontend {
     public class Indicators : Gtk.HBox {
 
         // Animation constants
-        const int FPS = 60;
+        const int FPS = 30;
         private int animation_duration;
         private int animation_frames; // total number of frames
         private int current_frame = 1;
@@ -128,7 +128,6 @@ namespace Slingshot.Frontend {
             widget.get_allocation (out size);
             var context = Gdk.cairo_create (widget.window);
 
-
             double d = (double) this.animation_frames;
             double t = (double) this.current_frame;
 
@@ -162,4 +161,3 @@ namespace Slingshot.Frontend {
         }
     }
 }
-

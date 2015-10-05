@@ -4,8 +4,8 @@ namespace Slingshot.Frontend {
     public class Searchbar : Gtk.HBox {
 
         // Constants
-        const int WIDTH = 240; //ancho de la barra
-        const int HEIGHT = 26; //alto de la barra
+        const int WIDTH = 240;
+        const int HEIGHT = 32;
 
         // Signals
         public signal void changed ();
@@ -53,6 +53,9 @@ namespace Slingshot.Frontend {
             // Pack gtk-find icon
             var blank_space = new Gtk.EventBox ();
             blank_space.border_width = 4;
+            var color = Gdk.Color ();
+            Gdk.Color.parse ("#b2b2b2", out color);
+            blank_space.modify_bg (Gtk.StateType.NORMAL, color);
             wrapper.pack_start (blank_space, false, true, 1);
 
             // propiedades del Label
@@ -115,7 +118,7 @@ namespace Slingshot.Frontend {
 
         private void grey_out () {
             var color = Gdk.Color ();
-            Gdk.Color.parse ("#a0a0a0", out color);
+            Gdk.Color.parse ("#333333", out color);
             this.label.modify_fg (Gtk.StateType.NORMAL, color);
             this.label.modify_font (Pango.FontDescription.from_string ("italic"));
             this.is_hinted = true;
@@ -124,9 +127,9 @@ namespace Slingshot.Frontend {
         private void reset_font () {
 
             var color = Gdk.Color ();
-            Gdk.Color.parse ("#444", out color);
+            Gdk.Color.parse ("#333333", out color);
             this.label.modify_fg (Gtk.StateType.NORMAL, color);
-            this.label.modify_font (Pango.FontDescription.from_string ("normal"));
+            this.label.modify_font (Pango.FontDescription.from_string ("italic"));
             this.is_hinted = false;
 
         }
@@ -141,11 +144,11 @@ namespace Slingshot.Frontend {
             widget.get_allocation (out size);
             var context = Gdk.cairo_create (widget.window);
 
-            Slingshot.Frontend.Utilities.draw_rounded_rectangle (context, 0, 0.5, size);
+            Slingshot.Frontend.Utilities.draw_rounded_rectangle (context, 10, 0.5, size);
 
             // Draw background gradient
             var linear_fill = new Cairo.Pattern.linear(size.x, size.y, size.x, size.y + size.height);
-	        linear_fill.add_color_stop_rgb(1, 1, 1, 1);
+	        linear_fill.add_color_stop_rgb(1, 0.7, 0.7, 0.7);
             context.set_source (linear_fill);
             context.fill_preserve ();
 

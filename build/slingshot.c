@@ -366,7 +366,7 @@ SlingshotWindow* slingshot_window_construct (GType object_type) {
 	self = (SlingshotWindow*) elementary_widgets_composited_window_construct (object_type);
 	_tmp0_ = wnck_screen_get_default ();
 	wnck_screen_toggle_showing_desktop (_tmp0_, FALSE);
-	gtk_window_set_title ((GtkWindow*) self, "Slingshot");
+	gtk_window_set_title ((GtkWindow*) self, "Slingscold");
 	gtk_window_set_skip_pager_hint ((GtkWindow*) self, TRUE);
 	gtk_window_set_skip_taskbar_hint ((GtkWindow*) self, TRUE);
 	gtk_window_set_type_hint ((GtkWindow*) self, GDK_WINDOW_TYPE_HINT_NORMAL);
@@ -488,13 +488,13 @@ SlingshotWindow* slingshot_window_construct (GType object_type) {
 	_tmp52_ = _tmp51_.height;
 	if (_tmp50_ > _tmp52_) {
 		SlingshotFrontendGrid* _tmp53_ = NULL;
-		_tmp53_ = slingshot_frontend_grid_new (4, 6);
+		_tmp53_ = slingshot_frontend_grid_new (4, 8);
 		g_object_ref_sink (_tmp53_);
 		_g_object_unref0 (self->grid);
 		self->grid = _tmp53_;
 	} else {
 		SlingshotFrontendGrid* _tmp54_ = NULL;
-		_tmp54_ = slingshot_frontend_grid_new (6, 4);
+		_tmp54_ = slingshot_frontend_grid_new (8, 4);
 		g_object_ref_sink (_tmp54_);
 		_g_object_unref0 (self->grid);
 		self->grid = _tmp54_;
@@ -1495,7 +1495,7 @@ static gboolean slingshot_window_draw_background (SlingshotWindow* self, GtkWidg
 	_tmp14_ = _tmp13_.height;
 	_tmp15_ = cairo_pattern_create_linear ((gdouble) _tmp6_, (gdouble) _tmp8_, (gdouble) _tmp10_, (gdouble) (_tmp12_ + _tmp14_));
 	linear_gradient = _tmp15_;
-	cairo_pattern_add_color_stop_rgba (linear_gradient, 0.0, 0.0, 0.0, 0.0, 0.96);
+	cairo_pattern_add_color_stop_rgba (linear_gradient, 0.0, 0.0, 0.0, 0.0, 0.9);
 	cairo_set_source (context, linear_gradient);
 	cairo_paint (context);
 	result = FALSE;

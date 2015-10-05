@@ -67,7 +67,7 @@ enum  {
 };
 static void _g_object_unref0_ (gpointer var);
 static void _g_list_free__g_object_unref0_ (GList* self);
-#define SLINGSHOT_FRONTEND_INDICATORS_FPS 60
+#define SLINGSHOT_FRONTEND_INDICATORS_FPS 30
 SlingshotFrontendIndicators* slingshot_frontend_indicators_new (void);
 SlingshotFrontendIndicators* slingshot_frontend_indicators_construct (GType object_type);
 void slingshot_frontend_indicators_append (SlingshotFrontendIndicators* self, const gchar* thelabel);
