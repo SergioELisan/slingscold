@@ -1,7 +1,6 @@
-
 [Desktop Entry]
 Name=Slingscold
-Comment=Lanzador de aplicaciones
+Comment=APP Launcher
 Exec=/usr/local/bin/slingscold.sh
 Icon=/usr/share/icons/slingscold.png
 Type=Application
