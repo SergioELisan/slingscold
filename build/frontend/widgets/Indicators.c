@@ -203,7 +203,7 @@ void slingshot_frontend_indicators_append (SlingshotFrontendIndicators* self, co
 	gtk_widget_modify_fg ((GtkWidget*) label, GTK_STATE_NORMAL, &_tmp4_);
 	_tmp5_ = pango_font_description_new ();
 	font = _tmp5_;
-	pango_font_description_set_size (font, 9500);
+	pango_font_description_set_size (font, 20000);
 	pango_font_description_set_weight (font, PANGO_WEIGHT_HEAVY);
 	gtk_widget_modify_font ((GtkWidget*) label, font);
 	_tmp6_ = slingshot_frontend_utilities_wrap_alignment ((GtkWidget*) label, 5, 15, 5, 15);

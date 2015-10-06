@@ -186,7 +186,7 @@ SlingshotFrontendSearchbar* slingshot_frontend_searchbar_construct (GType object
 	blank_space = _tmp6_;
 	gtk_container_set_border_width ((GtkContainer*) blank_space, (guint) 4);
 	memset (&color, 0, sizeof (GdkColor));
-	gdk_color_parse ("#b2b2b2", &_tmp7_);
+	gdk_color_parse ("#000", &_tmp7_);
 	color = _tmp7_;
 	_tmp8_ = color;
 	gtk_widget_modify_bg ((GtkWidget*) blank_space, GTK_STATE_NORMAL, &_tmp8_);
@@ -308,7 +308,7 @@ static void slingshot_frontend_searchbar_grey_out (SlingshotFrontendSearchbar* s
 	PangoFontDescription* _tmp5_ = NULL;
 	g_return_if_fail (self != NULL);
 	memset (&color, 0, sizeof (GdkColor));
-	gdk_color_parse ("#333333", &_tmp0_);
+	gdk_color_parse ("#FFF", &_tmp0_);
 	color = _tmp0_;
 	_tmp1_ = self->label;
 	_tmp2_ = color;
@@ -332,7 +332,7 @@ static void slingshot_frontend_searchbar_reset_font (SlingshotFrontendSearchbar*
 	PangoFontDescription* _tmp5_ = NULL;
 	g_return_if_fail (self != NULL);
 	memset (&color, 0, sizeof (GdkColor));
-	gdk_color_parse ("#333333", &_tmp0_);
+	gdk_color_parse ("#FFF", &_tmp0_);
 	color = _tmp0_;
 	_tmp1_ = self->label;
 	_tmp2_ = color;
@@ -398,9 +398,12 @@ static gboolean slingshot_frontend_searchbar_draw_background (SlingshotFrontendS
 	_tmp15_ = _tmp14_.height;
 	_tmp16_ = cairo_pattern_create_linear ((gdouble) _tmp7_, (gdouble) _tmp9_, (gdouble) _tmp11_, (gdouble) (_tmp13_ + _tmp15_));
 	linear_fill = _tmp16_;
-	cairo_pattern_add_color_stop_rgb (linear_fill, (gdouble) 1, 0.7, 0.7, 0.7);
+	cairo_pattern_add_color_stop_rgb (linear_fill, (gdouble) 0, (gdouble) 0, (gdouble) 0, (gdouble) 0);
 	cairo_set_source (context, linear_fill);
 	cairo_fill_preserve (context);
+	cairo_set_source_rgba (context, (gdouble) 1, (gdouble) 1, (gdouble) 1, (gdouble) 1);
+	cairo_set_line_width (context, 1.0);
+	cairo_stroke (context);
 	result = FALSE;
 	_cairo_pattern_destroy0 (linear_fill);
 	_cairo_destroy0 (context);

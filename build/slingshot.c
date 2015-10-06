@@ -84,9 +84,9 @@ typedef struct _SlingshotFrontendIndicators SlingshotFrontendIndicators;
 typedef struct _SlingshotFrontendIndicatorsClass SlingshotFrontendIndicatorsClass;
 #define __g_list_free__g_object_unref0_0(var) ((var == NULL) ? NULL : (var = (_g_list_free__g_object_unref0_ (var), NULL)))
 #define _g_object_unref0(var) ((var == NULL) ? NULL : (var = (g_object_unref (var), NULL)))
-#define _g_free0(var) (var = (g_free (var), NULL))
 typedef struct _Block1Data Block1Data;
 typedef struct _SlingshotFrontendIndicatorsPrivate SlingshotFrontendIndicatorsPrivate;
+#define _g_free0(var) (var = (g_free (var), NULL))
 #define _g_error_free0(var) ((var == NULL) ? NULL : (var = (g_error_free (var), NULL)))
 #define _gmenu_tree_item_unref0(var) ((var == NULL) ? NULL : (var = (gmenu_tree_item_unref (var), NULL)))
 #define _cairo_pattern_destroy0(var) ((var == NULL) ? NULL : (var = (cairo_pattern_destroy (var), NULL)))
@@ -362,7 +362,7 @@ SlingshotWindow* slingshot_window_construct (GType object_type) {
 	GtkHBox* _tmp62_ = NULL;
 	GeeArrayList* _tmp63_ = NULL;
 	gint _tmp64_ = 0;
-	SlingshotFrontendIndicators* _tmp75_ = NULL;
+	SlingshotFrontendIndicators* _tmp72_ = NULL;
 	self = (SlingshotWindow*) elementary_widgets_composited_window_construct (object_type);
 	_tmp0_ = wnck_screen_get_default ();
 	wnck_screen_toggle_showing_desktop (_tmp0_, FALSE);
@@ -536,9 +536,6 @@ SlingshotWindow* slingshot_window_construct (GType object_type) {
 					gint _tmp69_ = 0;
 					gint _tmp70_ = 0;
 					SlingshotFrontendIndicators* _tmp71_ = NULL;
-					gint _tmp72_ = 0;
-					gchar* _tmp73_ = NULL;
-					gchar* _tmp74_ = NULL;
 					if (!_tmp67_) {
 						gint _tmp68_ = 0;
 						_tmp68_ = p;
@@ -551,17 +548,13 @@ SlingshotWindow* slingshot_window_construct (GType object_type) {
 						break;
 					}
 					_tmp71_ = self->pages;
-					_tmp72_ = p;
-					_tmp73_ = g_strdup_printf ("%i", _tmp72_);
-					_tmp74_ = _tmp73_;
-					slingshot_frontend_indicators_append (_tmp71_, _tmp74_);
-					_g_free0 (_tmp74_);
+					slingshot_frontend_indicators_append (_tmp71_, ".");
 				}
 			}
 		}
 	}
-	_tmp75_ = self->pages;
-	slingshot_frontend_indicators_set_active (_tmp75_, 0);
+	_tmp72_ = self->pages;
+	slingshot_frontend_indicators_set_active (_tmp72_, 0);
 	g_signal_connect_object ((GtkWidget*) self, "button-release-event", (GCallback) ___lambda19__gtk_widget_button_release_event, self, 0);
 	g_signal_connect_object ((GtkWidget*) self, "expose-event", (GCallback) _slingshot_window_draw_background_gtk_widget_expose_event, self, 0);
 	g_signal_connect_object ((GtkWidget*) self, "focus-out-event", (GCallback) ___lambda20__gtk_widget_focus_out_event, self, 0);

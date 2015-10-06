@@ -33,8 +33,7 @@ namespace Slingshot.Frontend {
         public Gtk.Image search_icon;
         private Gtk.Image clear_icon;
         public string hint_string;
-        private bool is_hinted = true; // protects against bug where get_text () will return "" if the user happens to type in the hint string
-
+        private bool is_hinted = true;
 
         public Searchbar (string hint) {
             this.hint_string = hint;
@@ -54,7 +53,7 @@ namespace Slingshot.Frontend {
             var blank_space = new Gtk.EventBox ();
             blank_space.border_width = 4;
             var color = Gdk.Color ();
-            Gdk.Color.parse ("#b2b2b2", out color);
+            Gdk.Color.parse ("#000", out color);
             blank_space.modify_bg (Gtk.StateType.NORMAL, color);
             wrapper.pack_start (blank_space, false, true, 1);
 
@@ -118,7 +117,7 @@ namespace Slingshot.Frontend {
 
         private void grey_out () {
             var color = Gdk.Color ();
-            Gdk.Color.parse ("#333333", out color);
+            Gdk.Color.parse ("#FFF", out color);
             this.label.modify_fg (Gtk.StateType.NORMAL, color);
             this.label.modify_font (Pango.FontDescription.from_string ("italic"));
             this.is_hinted = true;
@@ -127,7 +126,7 @@ namespace Slingshot.Frontend {
         private void reset_font () {
 
             var color = Gdk.Color ();
-            Gdk.Color.parse ("#333333", out color);
+            Gdk.Color.parse ("#FFF", out color);
             this.label.modify_fg (Gtk.StateType.NORMAL, color);
             this.label.modify_font (Pango.FontDescription.from_string ("italic"));
             this.is_hinted = false;
@@ -148,9 +147,14 @@ namespace Slingshot.Frontend {
 
             // Draw background gradient
             var linear_fill = new Cairo.Pattern.linear(size.x, size.y, size.x, size.y + size.height);
-	        linear_fill.add_color_stop_rgb(1, 0.7, 0.7, 0.7);
-            context.set_source (linear_fill);
+	        linear_fill.add_color_stop_rgb(0, 0, 0, 0);
+            context.set_source(linear_fill);
             context.fill_preserve ();
+
+            // Draw outside black stroke
+            context.set_source_rgba(1, 1, 1, 1);
+            context.set_line_width(1.0);
+            context.stroke();
 
             return false;
         }

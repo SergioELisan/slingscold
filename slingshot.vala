@@ -99,7 +99,7 @@ public class SlingshotWindow : ElementaryWidgets.CompositedWindow {
         if (this.total_pages >  1) {
             pages_wrapper.pack_start (this.pages, true, false, 0);
             for (int p = 1; p <= this.total_pages; p++) {
-                this.pages.append (p.to_string ());
+                this.pages.append (".");
             }
         }
         this.pages.set_active (0);
