@@ -1,1 +1,7 @@
+/home/sergio/Workspaces/Clang/slingscold/build/CMakeFiles/install.dir
+/home/sergio/Workspaces/Clang/slingscold/build/CMakeFiles/list_install_components.dir
+/home/sergio/Workspaces/Clang/slingscold/build/CMakeFiles/rebuild_cache.dir
 /home/sergio/Workspaces/Clang/slingscold/build/CMakeFiles/slingscold.dir
+/home/sergio/Workspaces/Clang/slingscold/build/CMakeFiles/install/local.dir
+/home/sergio/Workspaces/Clang/slingscold/build/CMakeFiles/install/strip.dir
+/home/sergio/Workspaces/Clang/slingscold/build/CMakeFiles/edit_cache.dir

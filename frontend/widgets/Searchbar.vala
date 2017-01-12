@@ -53,7 +53,7 @@ namespace Slingshot.Frontend {
             var blank_space = new Gtk.EventBox ();
             blank_space.border_width = 4;
             var color = Gdk.Color ();
-            Gdk.Color.parse ("#000", out color);
+            Gdk.Color.parse ("#f9f9f9", out color);
             blank_space.modify_bg (Gtk.StateType.NORMAL, color);
             wrapper.pack_start (blank_space, false, true, 1);
 
@@ -117,7 +117,7 @@ namespace Slingshot.Frontend {
 
         private void grey_out () {
             var color = Gdk.Color ();
-            Gdk.Color.parse ("#FFF", out color);
+            Gdk.Color.parse ("#999999", out color);
             this.label.modify_fg (Gtk.StateType.NORMAL, color);
             this.label.modify_font (Pango.FontDescription.from_string ("italic"));
             this.is_hinted = true;
@@ -126,7 +126,7 @@ namespace Slingshot.Frontend {
         private void reset_font () {
 
             var color = Gdk.Color ();
-            Gdk.Color.parse ("#FFF", out color);
+            Gdk.Color.parse ("#999999", out color);
             this.label.modify_fg (Gtk.StateType.NORMAL, color);
             this.label.modify_font (Pango.FontDescription.from_string ("italic"));
             this.is_hinted = false;
